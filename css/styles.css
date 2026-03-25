@@ -37,6 +37,7 @@
     --font-weight-bold:      600;
 
     /* Spacing */
+    --space-xxs:     0.01rem;
     --space-xs:      0.25rem;
     --space-sm:      0.5rem;
     --space-md:      1rem;
@@ -59,14 +60,18 @@
     /* Devices */
     --tablet:              767px;
     --desktop:             992px;
+    --large-screen:        1080px;
+    --extra-large-screen:  1920px;
 
     /* Layout */
-    --min-element-height:     40vh;
-    --max-element-height:     80vh;
-    --one-third-element-size: 30%;
-    --half-element-size:      50%;
-    --eight-percent-element-size: 80%;
-    --default-element-size:   100%;
+    --min-element-height:            40vh;
+    --max-element-height:            80vh;
+    --one-third-element-size:        30%;
+    --half-element-size:             50%;
+    --seventhy-percent-element-size: 70%;
+    --eighty-percent-element-size:   80%;
+    --ninety-percent-element-size:   90%;
+    --default-element-size:          100%;
 
     --max-screen-width:       100vw;
     --max-content-width:      90vw;
@@ -85,8 +90,11 @@
     --brand-min-width:         100px;
     --icon-width:              20px;
     --carousel-percentage:     -50%;
+    --nav-toggle-shift:        -50%;
     --svg-length-percentage:   -50%;
     --svg-angle:               180deg;
+    --color-filter-opacity:    0.4;
+    --accent-width:            9%;
 }
 
 
@@ -284,7 +292,7 @@ header {
 }
 
 .nav-item {
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-sm);
     vertical-align: middle;
     color: var(--colour-teal);
 }
@@ -373,14 +381,14 @@ header {
 .banner-title {
     font-family: var(--font-heading), sans-serif;
     font-weight: var(--font-weight-bold);
-    font-size: 1.1rem;
+    font-size: var(--font-size-default);
     text-transform: uppercase;
     text-shadow: 1px 1px black;
     display: inline-block;
-    padding: 0.5em 0.6em;
+    padding: var(--space-sm);
     border: 2px solid var(--colour-offwhite);
     margin: 0 auto var(--space-md);
-    max-width: 90%;
+    max-width: var(--ninety-percent-element-size);
 }
 
 .banner-description {
@@ -388,7 +396,7 @@ header {
     max-width: var(--card-image-max-width);
     line-height: var(--line-height-default);
     word-wrap: break-word;
-    width: 70%;
+    width: var(--seventhy-percent-element-size);
 }
 
 /* Color filter for the carousel images */
@@ -403,7 +411,7 @@ header {
     position: absolute;
     inset: 0;
     mix-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: var(--color-filter-opacity);
     pointer-events: none;
 }
 
@@ -416,7 +424,7 @@ header {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.4;
+    opacity: var(--color-filter-opacity);
 }
 
 .carousel-item.blue-filter::after {
@@ -441,7 +449,7 @@ header {
     position: absolute;
     top: 45%;
     left: var(--half-element-size);
-    transform: translate(-50%, -50%);
+    transform: translate(var(--carousel-percentage), var(--carousel-percentage));
     width: 95%;
     text-align: center;
     color: var(--colour-white);
@@ -460,7 +468,7 @@ header {
 .carousel-item {
     position: absolute;
     inset: 0;
-    width: 100%;
+    width: var(--default-element-size);
     visibility: hidden;
     z-index: 1;
     transform: translateX(0);
@@ -469,13 +477,13 @@ header {
 /* Carousel controls */
 .carousel-control {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: var(--half-element-size);
+    transform: translateY(var(--carousel-percentage));
     z-index: 10;
     background: none;
     border: none;
     font-size: var(--font-size-md);
-    padding: 0.1em;
+    padding: var(--space-sm);
     transition: background-color 1.25s ease;
 }
 
@@ -531,7 +539,7 @@ header {
 
 .section-what h2 {
     padding-top: var(--space-md);
-    width: 70%;
+    width: var(--seventhy-percent-element-size);
     margin: 0 auto;
     line-height: var(--line-height-default);
     color: var(--colour-dark);
@@ -541,14 +549,14 @@ header {
 .section-title {
     font-family: var(--font-heading), sans-serif;
     font-weight: var(--font-weight-bold);
-    font-size: 1.75rem;
+    font-size: var(--font-size-default);
     text-transform: uppercase;
     color: var(--colour-gray-text);
     margin-bottom: var(--space-sm);
 }
 
 .accent-rule {
-    width: 9%;
+    width: var(--accent-width);
     border: 0.4vh solid;
     margin: var(--space-md) auto var(--space-lg);
 }
@@ -575,8 +583,8 @@ header {
     width: var(--default-element-size);
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 50%;
-    border: 0.5rem solid var(--colour-teal);
+    border-radius: var(--half-element-size);
+    border: var(--space-sm) solid var(--colour-teal);
     padding: 0.5vh;
     margin: 0 auto var(--space-md);
     max-width: var(--card-image-max-width);
@@ -685,7 +693,6 @@ header {
     background-color: var(--colour-teal);
     padding: var(--space-lg) var(--space-md) var(--space-xxl);
     color: var(--colour-offwhite);
-    min-height: 10em;
 }
 
 .contact-inner {
@@ -710,14 +717,14 @@ header {
 
 .contact-form .form-group {
     border: 1px solid var(--colour-white);
-    padding: 0.5em var(--space-sm);
+    padding: var(--space-sm) var(--space-sm);
     margin-bottom: var(--space-md);
 }
 
 .contact-form label {
     display: inline;
     padding: var(--space-xs) var(--space-sm);
-    font-size: 0.8rem;
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     color: var(--colour-offwhite);
@@ -739,7 +746,7 @@ header {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: rgba(246, 246, 246, 0.65);
+    color: var(--colour-gray-light);
 }
 
 .form-submit {
@@ -811,15 +818,34 @@ header {
    12. MEDIA QUERIES
    ============================================================================= */
 
+/* Mobile settings */
 @media (max-width: 767px) {
+    .header-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        position: absolute;
+        top: -3rem; /* the brand's vertical center */
+        transform: translateY(var(--nav-toggle-shift)); /* shift it up by an additional half its own height */
+    }
+
+    .header-inner {
+        position: relative;
+    }
+
     .nav-list {
         display: none;
+        width: var(--max-content-width);
     }
 
     .nav-list.nav-open {
         display: flex;
         flex-direction: column;
     }
+
 }
 
 @media (min-width: 767px) {
@@ -855,7 +881,12 @@ header {
 
     .nav-item {
         width: auto;
-        border-bottom: none !important;
+        border-bottom: none;
+        font-size: var(--font-size-default);
+    }
+
+    .nav-item:not(:last-child) {
+        border-bottom: none;
     }
 
     .nav-link {
@@ -882,7 +913,7 @@ header {
 
     .dropdown-menu {
         position: absolute;
-        top: 100%;
+        top: var(--default-element-size);
         left: 0;
         min-width: var(--dropdown-min-width);
         box-shadow: var(--dropdown-shadow);
