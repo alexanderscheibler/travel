@@ -5,12 +5,17 @@
   "repository": "git@github.com:alexanderscheibler/travel.git",
   "author": "Alexander Scheibler <60936422+alexanderscheibler@users.noreply.github.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "screenshot": "playwright test"
+    "screenshot": "playwright test",
+    "test": "vitest"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.5.0",
-    "serve": "^14.2.6"
+    "@vitest/coverage-v8": "^4.1.2",
+    "jsdom": "^29.0.1",
+    "serve": "^14.2.6",
+    "vitest": "^4.1.2"
   }
 }

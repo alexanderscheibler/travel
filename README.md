@@ -3,6 +3,8 @@ A fully responsive Front-End example, contains only an index page based on a des
 
 HTML + Pure CSS + Javascript
 
+Unit tests with Vitest.
+
 ![desktop-chrome.png](tests/screenshots/desktop-chrome.png)
 
 Using Playwright for screenshots of multiple devices (see [tests/screenshots](tests/screenshots)).
