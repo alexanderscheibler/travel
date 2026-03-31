@@ -1,7 +1,11 @@
 # travel
+[![Vitest unit test](https://github.com/alexanderscheibler/travel/actions/workflows/test.yml/badge.svg)](https://github.com/alexanderscheibler/travel/actions/workflows/test.yml)
+
 A fully responsive Front-End example, contains only an index page based on a designed image.
 
 HTML + Pure CSS + Javascript
+
+Unit tests with Vitest.
 
 ![desktop-chrome.png](tests/screenshots/desktop-chrome.png)
 
